@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../ButtonElements';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import {
   InfoContainer,
   InfoWrapper,
@@ -31,12 +32,17 @@ const Resume = ({
   dark,
   dark2
 }) => {
-  console.log(primary);
+  const [ref, isVisible] = useScrollReveal();
+
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
         <InfoWrapper>
-          <InfoRow imgStart={imgStart}>
+          <InfoRow imgStart={imgStart} ref={ref} style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+            transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
+          }}>
             <Column1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
@@ -44,7 +50,8 @@ const Resume = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    onClick={()=> window.open(require('../../images/Resume.pdf'))}
+                    to="home"
+                    onClick={(e) => { e.preventDefault(); window.open(require('../../images/Resume.pdf')); }}
                     smooth={true}
                     duration={500}
                     spy={true}
@@ -60,11 +67,10 @@ const Resume = ({
               </TextWrapper>
             </Column1>
             <Column2>
-            {/* Need to figure out download function for resume or enlarge */}
               <ImgWrap>
-                <Img src={img} alt={alt} 
-                onClick={()=> window.open(require('../../images/Resume.pdf'))}
-                />              
+                <Img src={img} alt={alt}
+                  onClick={() => window.open(require('../../images/Resume.pdf'))}
+                />
               </ImgWrap>
             </Column2>
           </InfoRow>

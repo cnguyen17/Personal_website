@@ -22,7 +22,8 @@ import Pacer from '../components/Pacer'
 import { projectThree } from '../components/Pacer/Data';
 import Scout from '../components/Scout';
 import { projectFour } from '../components/Scout/Data';
-
+import ShipCaptain from '../components/ShipCaptain';
+import { projectFive } from '../components/ShipCaptain/Data';
 
 import Services from '../components/Services';
 import Internships from '../components/Internships';
@@ -47,7 +48,7 @@ function Home() {
       <EESANA {...projectTwo}/>
       <Pacer {...projectThree} />
       <Scout {...projectFour} />
-      
+      <ShipCaptain {...projectFive} />
       <Internships/>
       <InfoSection {...Contact} />
       <Footer />

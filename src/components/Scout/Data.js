@@ -1,4 +1,3 @@
-
 export const projectFour = {
   id: 'Project',
   lightBg: false,
@@ -7,12 +6,12 @@ export const projectFour = {
   topLine: 'Project 4',
   headline: 'Scout',
   description:
-    "Helped develop and deploy website for Eritrean Ethiopian Student Association (Scout). Scout was established in March 2020 by students to bridge the gap between different Eritrean Ethiopian Student Associations across college campuses and their respective countries.",
-  buttonLabel: 'React Native' ,
-  buttonLabel2: "Website",
+    "An AI-driven tool designed to help dealers find cars faster with real-time insights on bid prices, time remaining, market value, and profit margins. Built a centralized, interactive live auction platform that streamlines vehicle sale insights, increasing overall purchase volume by 24%.",
+  buttonLabel: 'Visit site',
+  siteUrl: 'https://pacer.co/',
   imgStart: false,
-  img: require('../../images/Pacer-app.mp4'),
-  alt: 'Papers',
+  img: require('../../images/Scout.mp4'),
+  alt: 'Scout',
   dark: true,
   primary: true,
   darkText: false

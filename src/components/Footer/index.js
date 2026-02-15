@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import {ReactComponent as Icon} from '../../images/svg-2.svg';
+import React from 'react';
 
 import {
   FaFacebook,
@@ -14,63 +13,27 @@ import { animateScroll as scroll } from 'react-scroll';
 import {
   FooterContainer,
   FooterWrap,
-  FooterLinksContainer,
-  FooterLinksWrapper,
-  FooterLinkItems,
-  FooterLinkTitle,
-  FooterLink,
   SocialMedia,
   SocialMediaWrap,
   SocialLogo,
   WebsiteRights,
   SocialIcons,
   SocialIconLink,
-  Img,
-  Spacer
 } from './FooterElements';
-
-
-// class TypingText extends Component {
-//   render() {
-//     return <TypeWriter typing={1}>Calvin</TypeWriter>
-//   }
-// }
 
 const Footer = () => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
   return (
-    
     <FooterContainer>
       <FooterWrap>
-        <FooterLinksContainer>
-        <Img  src={ require('../../images/svg-1.png')}/>
-          <FooterLinksWrapper>
-
-            <Spacer  src={ require('../../images/svg-2.png')} >
-              
-            </Spacer>
-            <FooterLinkItems>
-
-            </FooterLinkItems>
-            <FooterLinkItems>
-              <FooterLinkTitle>Social Media</FooterLinkTitle>
-              <FooterLink onClick={()=> window.open("https://www.instagram.com/calvin_nguyen.ig/")} target='_blank' aria-label='Instagram'>Instagram</FooterLink>
-              <FooterLink onClick={()=> window.open("https://www.facebook.com/calvin.nguyen.5099940/")} target='_blank' aria-label='Instagram'>Facebook</FooterLink>
-              <FooterLink onClick={()=> window.open("https://www.linkedin.com/in/calvin-nguyen-a13a7419b/")} target='_blank' aria-label='Instagram'>Linkedin</FooterLink>
-              <FooterLink onClick={()=> window.open("mailto:calvin.nguyenco@gmail.com?subject=Let's Talk!")} target='_blank' aria-label='Instagram'>Email</FooterLink>
-              <FooterLink onClick={()=> window.open("https://github.com/cnguyen17")} target='_blank' aria-label='Instagram'>GitHub</FooterLink>
-            </FooterLinkItems>
-          </FooterLinksWrapper>
-        </FooterLinksContainer>
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to='/' onClick={toggleHome}>
-              <img src={require('../../images/logo4.png')} height={75} width={235} alt = " " />
+              <img src={require('../../images/logo4.png')} height={50} width={157} alt="Calvin Nguyen" />
             </SocialLogo>
-            <FooterLinkTitle>Feel Free to follow my Socials as well!</FooterLinkTitle>
-            <WebsiteRights>                                              </WebsiteRights>
+            <WebsiteRights>Calvin Nguyen {new Date().getFullYear()}</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href='https://www.facebook.com/calvin.nguyen.5099940/' target='_blank' aria-label='Facebook'>
                 <FaFacebook />
@@ -86,8 +49,7 @@ const Footer = () => {
               >
                 <HiMail />
               </SocialIconLink>
-            
-              <SocialIconLink href='https://www.linkedin.com/in/calvin-nguyen-a13a7419b/' target='_blank' aria-label='Linkedin'>
+              <SocialIconLink href='https://www.linkedin.com/in/calvin-nguyen-a13a7419b/' target='_blank' aria-label='LinkedIn'>
                 <FaLinkedin />
               </SocialIconLink>
               <SocialIconLink href='https://github.com/cnguyen17' target='_blank' aria-label='GitHub'>

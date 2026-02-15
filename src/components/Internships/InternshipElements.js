@@ -5,74 +5,74 @@ export const ServicesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #E3DBBA;
-  padding: 0 50px;
-  padding: 80px 50px;
+  background: #111111;
+  padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 48px);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  }
 `;
 
 export const ServicesWrapper = styled.div`
-  max-width: 1000px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  padding: 0 50px;
-  position: relative; /* Establish stacking context */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    max-width: 500px;
   }
 `;
 
-// export const ServicesCard = styled.div`
-//   background: #010606;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   align-items: center;
-//   border-radius: 10px;
-//   max-height: 340px;
-//   padding: 30px;
-//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-//   transition: all 0.2s ease-in-out;
-
-//   &:hover {
-//     transform: scale(1.02);
-//     transition: all 0.2s ease-in-out;
-//     cursor: pointer;
-//   }
-// `;
-
 export const ServicesCard = styled.div`
   position: relative;
-  background: #010606;
+  background: rgba(255, 255, 255, 0.02);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
-  z-index: 1; /* Base z-index */
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 240px;
 
   img {
-    width: 100%; /* Scales the logo to fit within the card width */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 10px; /* Space below the logo */
-    object-fit: contain; /* Ensures the logo is fully visible */
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    margin-bottom: 16px;
+    object-fit: contain;
+    filter: brightness(0.9);
+    transition: all 0.4s ease;
   }
 
   &:hover {
-    z-index: 10; /* Ensure the card is above other elements */
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
+    border-color: rgba(212, 168, 83, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+
+    img {
+      filter: brightness(1);
+    }
   }
 `;
 
@@ -82,66 +82,99 @@ export const ExpandedContent = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: #010606;
-  border-radius: 10px;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  color: white;
-  font-size: 12px; /* Smaller font size */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
-  z-index: 20; /* Ensures the hover card is on top */
-  text-align: center;
-  overflow: auto;
+  align-items: flex-start;
+  padding: 28px 24px;
+  color: #f0ece4;
+  font-size: 0.8rem;
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  z-index: 20;
+  text-align: left;
+  overflow-y: auto;
   width: 100%;
-  height: 300px; /* Maintain the specified height */
+  min-height: 100%;
+
+  /* Custom scrollbar for expanded content */
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(212, 168, 83, 0.3);
+    border-radius: 2px;
+  }
 
   img {
-    width: 100%; /* Scales the logo to fit within the card width */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 10px; /* Space below the logo */
-    object-fit: contain; /* Ensures the logo is fully visible */
+    width: auto;
+    max-width: 60%;
+    height: auto;
+    max-height: 50px;
+    margin-bottom: 16px;
+    object-fit: contain;
+    align-self: center;
   }
 
   ul {
     margin: 0;
-    padding: 0;
-    list-style-type: disc;
+    padding: 0 0 0 16px;
+    list-style-type: none;
     text-align: left;
-    line-height: 1.5; /* Adjust spacing between lines */
+    line-height: 1.6;
   }
 
   li {
-    margin-bottom: 10px; /* Space between bullet points */
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    color: rgba(240, 236, 228, 0.65);
+    position: relative;
+    padding-left: 12px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #d4a853;
+    }
   }
 `;
 
 export const ServicesIcon = styled.img`
-  height: 160px;
-  width: 160px;
-  margin-bottom: 10px;
+  height: 80px;
+  width: auto;
+  max-width: 160px;
+  margin-bottom: 16px;
+  object-fit: contain;
 `;
 
 export const ServicesH1 = styled.h1`
-  font-size: 2.5rem;
-  color: #010606;
-  margin-bottom: 37px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 2rem;
-  }
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #f0ece4;
+  margin-bottom: 60px;
+  text-align: center;
+  letter-spacing: -0.01em;
 `;
 
 export const ServicesH2 = styled.h2`
   font-size: 1rem;
-  color: #fff; 
-  margin-bottom: 50px;
+  color: #f0ece4;
+  margin-bottom: 12px;
+  font-weight: 600;
 `;
 
 export const ServicesP = styled.p`
-  font-size: 12px;
-  color: #fff;
+  font-size: 0.8rem;
+  color: rgba(240, 236, 228, 0.45);
   text-align: center;
+  line-height: 1.6;
+  font-weight: 300;
 `;

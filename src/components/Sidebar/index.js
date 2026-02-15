@@ -6,8 +6,6 @@ import {
   SidebarWrapper,
   SidebarMenu,
   SidebarLink,
-  SidebarRoute,
-  SideBtnWrap
 } from './SidebarElements';
 
 const Sidebar = ({ isOpen, toggle }) => {
@@ -80,9 +78,6 @@ const Sidebar = ({ isOpen, toggle }) => {
            Contact
           </SidebarLink>
         </SidebarMenu>
-        {/* <SideBtnWrap>
-          <SidebarRoute to='/signin'>Sign In</SidebarRoute>
-        </SideBtnWrap> */}
       </SidebarWrapper>
     </SidebarContainer>
   );
